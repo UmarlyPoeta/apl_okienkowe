@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mvn: package",
+      "type": "shell",
+      "command": "d=\"${fileDirname}\"; while [ ! -f \"$d/pom.xml\" ] && [ \"$d\" != / ]; do d=$(dirname \"$d\"); done; mvn -q -f \"$d/pom.xml\" package",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$javac"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "clear": true
+      }
+    },
+    {
+      "label": "mvn: test",
+      "type": "shell",
+      "command": "d=\"${fileDirname}\"; while [ ! -f \"$d/pom.xml\" ] && [ \"$d\" != / ]; do d=$(dirname \"$d\"); done; mvn -f \"$d/pom.xml\" test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$javac"
+      ],
+      "presentation": {
+        "clear": true
+      }
+    }
+  ]
+}

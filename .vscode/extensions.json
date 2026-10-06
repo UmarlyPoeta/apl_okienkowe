@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.remote-wsl",
+    "vscjava.vscode-java-pack",
+    "redhat.vscode-xml",
+    "usernamehw.errorlens",
+    "catppuccin.catppuccin-vsc",
+    "catppuccin.catppuccin-vsc-icons"
+  ]
+}
