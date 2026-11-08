@@ -149,6 +149,15 @@ class FunctionOnInterval implements Printable {
             throw new IllegalArgumentException("Krok musi być większy od 0 i nie większy od długości przedziału");
         }
 
+        if (function instanceof LinearFunction) {
+            System.out.println("\nTabela wartości funkcji po przesunięciu");
+            for (double x = start; x <= end; x += step) {
+                double shiftedX = x - 2; 
+                double shiftedValue = function.calculateValue(shiftedX) + 10;
+                System.out.println("f(" + x + ") = " + shiftedValue);
+            }
+        }
+
         this.function = function;
         this.start = start;
         this.end = end;
@@ -193,7 +202,6 @@ class FunctionOnInterval implements Printable {
         }
         return result;
     }
-
     private double[] calculatePoints() {
         int numberOfSteps = (int) Math.ceil((end - start) / step);
         double[] points = new double[numberOfSteps + 1];
@@ -207,9 +215,24 @@ class FunctionOnInterval implements Printable {
 
     @Override
     public void print() {
-        System.out.println("Funkcja na przedziale [" + start + ", " + end + "] z krokiem " + step + ":");
         double[] points = calculatePoints();
         double[] values = calculateValues();
+
+        /* 
+        if (function instanceof LinearFunction) {
+            System.out.println("\nTabela wartości funkcji po przesunieciu");
+            for (int i = 0; i < points.length; i++) {
+                points[i] = points[i] + 2;
+            }
+
+            for (int i = 0; i < values.length; i++) {
+                values[i] = values[i] + 10;
+            }
+            
+        }
+        else { */
+        System.out.println("Funkcja na przedziale [" + start + ", " + end + "] z krokiem " + step + ":");
+        
         for (int i = 0; i < points.length; i++) {
             System.out.println("f(" + points[i] + ") = " + values[i]);
         }
@@ -367,3 +390,5 @@ class ConsoleUI {
     }
 
 }
+// dla funkcji liniowej do tych inf co są dodać tabelę przedziałem wartości tylko przy przes
+// (2, 10)
