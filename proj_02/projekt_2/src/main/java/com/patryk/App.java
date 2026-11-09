@@ -144,5 +144,19 @@ public class App {
         manager.removeBranch("Wroclaw");
         manager.summary();
         System.out.println("Liczba pustych oddzialow po usunieciu Wroclawia: " + manager.findEmpty().size());
+
+        manager.addBranch("A", 10);
+        manager.getBranch("A").addLaptop(new Laptop("A", "B", LaptopCondition.WORKING, 1999, 1600));
+
+        manager.getBranch("A").addLaptop(new Laptop("D", "G", LaptopCondition.WORKING, 1999, 1700));
+
+        manager.getBranch("A").addLaptop(new Laptop("B", "Z", LaptopCondition.WORKING, 1999, 1400));
+
+        manager.getBranch("A").summary();
+
+        manager.metoda_skibidi(manager.getBranch("A"));
+
+        manager.getBranch("Av2").summary();
+
     }
 }

@@ -63,4 +63,16 @@ public class StorageManager {
             System.out.println("nazwa oddzialu: " + b.getBranchName() + ", wypelnienie: " + wyp + "%");
         }
     }
+
+    void metoda_skibidi(Branch odzial) {
+        String nowa_nazwa = odzial.getBranchName() + "v2";
+
+        addBranch(nowa_nazwa, 5000);
+
+        for (Laptop lap : odzial.getLaptopList()) {
+            if (lap.getPrice() > 1500.0) {
+                oddzialy.get(nowa_nazwa).addLaptop(lap);
+            }
+        }
+    }
 }
